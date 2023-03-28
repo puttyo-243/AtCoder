@@ -1,24 +1,17 @@
-from itertools import combinations as comb
+from itertools import combinations
 
 N, P, Q = map(int,input().split())
-A_list = list(map(int,input().split()))
+A_in = list(map(int,input().split()))
 
-A = comb(A_list,5)
-dict_ans = {}
-for a in list(A):
-    prod = 1
-    for i in a:
-        prod *= i
-    
-    if prod % P == Q:
-        print(a)
-        try:
-            dict_ans[prod] +=1
-        except KeyError:
-            dict_ans[prod] = 0
-            dict_ans[prod] +=1
+if P == 0:
+    print(0)
+    exit()
 
-ans = sum(dict_ans.values())
+comb = combinations(A_in,5)
+
+ans = 0
+for a, b, c, d, e in comb:
+    if a % P * b % P * c % P * d % P * e % P == Q:
+        ans += 1
 
 print(ans)
-
