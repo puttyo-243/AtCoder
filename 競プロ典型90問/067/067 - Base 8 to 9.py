@@ -1,14 +1,5 @@
 N,K = map(int,input().split())
 
-def change_to_base10(n):
-    li_8 = []
-    for i in str(n):
-        li_8.append(int(i))
-    for i in range(1,len(li_8)+1):
-        li_8[-i] = li_8[-i] * (8 ** (i-1))
-    
-    return sum(li_8)
-
 li_9 = []
 def change_to_base9(n):
     if (n // 9) >= 9:
@@ -33,9 +24,9 @@ def eight_five(n):
 a=0
 for k in range(1,K+1):
     if k == 1:
-        a = eight_five(int("".join(change_to_base9(change_to_base10(N)))))
+        a = eight_five(int("".join(change_to_base9(int(str(N),8)))))
     else:
-        a = eight_five(int("".join(change_to_base9(change_to_base10(a)))))
+        a = eight_five(int("".join(change_to_base9(int(str(a),8)))))
 
 
 print(a)
