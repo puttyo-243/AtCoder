@@ -1,0 +1,29 @@
+
+累積和を使用
+
+n = int(input())
+cp = []
+for i in range(n):
+    cp.append(list(map(int,input().split())))
+
+q = int(input())
+lr = []
+for i in range(q):
+    lr.append(list(map(int,input().split())))
+
+class1 = [0] * (n+1)
+class2 = [0] * (n+1)
+for i in range(n):
+    if cp[i][0] == 1:
+        class1[i+1] = cp[i][1] + class1[i]
+        class2[i+1] = class2[i]
+
+    else:
+        class2[i+1] = cp[i][1] + class2[i]
+        class1[i+1] = class1[i]
+
+for j in range(q):
+    l = lr[j][0]
+    r = lr[j][1]
+    print(class1[r] - class1[l-1], class2[r] - class2[l-1])
+
