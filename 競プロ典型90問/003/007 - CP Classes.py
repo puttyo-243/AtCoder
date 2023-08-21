@@ -7,6 +7,7 @@ for b in range(1,Q+1):
 
 def binary_search(data, value):
     left = 0
+    mid = 0
     right = len(data) - 1
     while left <= right:
         mid = (left + right) // 2
