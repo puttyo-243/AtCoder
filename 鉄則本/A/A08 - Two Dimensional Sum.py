@@ -16,8 +16,8 @@ for i in range(1,h+1):
     for j in range(1,w+1):
         z[i][j] = z[i][j-1] + x[i-1][j-1]
 
-for i in range(1,w+1):
-    for j in range(1,h+1):
+for i in range(1,h+1):
+    for j in range(1,w+1):
         z[i][j] = z[i-1][j] + z[i][j]
 
 for i in range(q):
