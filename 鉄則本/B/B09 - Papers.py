@@ -9,25 +9,25 @@ for i in range(n):
 
 
 ## 処理
-z = [[0] * (max(d)+1) for _ in range(max(c)+1)]
+z = [[0] * 1501 for _ in range(1501)]
 
 for i in range(n):
-    z[a[i]][b[i]] += 1
-    z[a[i]][d[i]] -= 1
-    z[c[i]][b[i]] -= 1
-    z[c[i]][d[i]] += 1
+    z[b[i]][a[i]] += 1
+    z[d[i]][a[i]] -= 1
+    z[b[i]][c[i]] -= 1
+    z[d[i]][c[i]] += 1
 
-for i in range(1, max(c)+1):
-    for j in range(1, max(d)+1):
+for i in range(0, 1501):
+    for j in range(1, 1501):
         z[i][j] = z[i][j-1] + z[i][j]
 
-for i in range(1, max(c)+1):
-    for j in range(1, max(d)+1):
+for i in range(1, 1501):
+    for j in range(0, 1501):
         z[i][j] = z[i-1][j] + z[i][j]
 
 ans = 0
-for i in range(1, max(d)+1):
-    for j in range(1, max(c)+1):
+for i in range(1501):
+    for j in range(1501):
         if z[i][j] > 0:
             ans += 1
 
